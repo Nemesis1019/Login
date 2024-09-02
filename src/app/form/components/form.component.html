@@ -1,0 +1,138 @@
+<div class="flex flex-col-reverse md:flex-row md:h-screen">
+  <!-- Lado Izquierdo: Formulario de Login -->
+  <div class="flex-1 flex flex-col justify-center items-center bg-white p-6 md:p-12 ">
+    <h1 class="text-2xl font-bold mb-6 w-[80%] ml-8">¡Regístrate!</h1>
+    <h2 class="w-[80%] ml-8" >Da el primer paso y solicíta tu crédito</h2>
+    <h2 class="w-[80%] ml-8">Diligencia los siguientes campos:</h2>
+    <form [formGroup]="solicitudForm" (ngSubmit)="onSubmit()" class="w-[80%] h-[full] mt-4 overflow-y-auto">
+      <div class="mb-4">
+        <label class="block text-color_label text-sm font-normal ml-4 relative" for="nit_empresa">
+          NIT de tu empresa
+          <span class="text-red-500 absolute top-0">*</span>
+        </label>
+        <input
+          formControlName="nit_empresa"
+          class="shadow appearance-none border rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="nit_empresa"
+          type="number"
+          placeholder="000000000"
+        />
+        <div *ngIf="solicitudForm.get('nit_empresa')?.invalid && solicitudForm.get('nit_empresa')?.touched" class="text-red-500 flex w-full text-[12px] justify-end">
+          <div *ngIf="solicitudForm.get('nit_empresa')?.errors?.['required']">El NIT es obligatorio.</div>
+          <div *ngIf="solicitudForm.get('nit_empresa')?.errors?.['pattern']">El NIT debe tener entre 9 y 10 dígitos.</div>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-color_label text-sm font-normal ml-4 relative" for="email">
+          Correo de tu empresa
+          <span class="text-red-500 absolute top-0">*</span>
+        </label>
+        <input
+          formControlName="email"
+          class="shadow appearance-none border rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="email"
+          type="email"
+          placeholder="ejemplo@tuempresa.com"
+        />
+        <div *ngIf="solicitudForm.get('email')?.invalid && solicitudForm.get('email')?.touched" class="text-red-500 flex w-full text-[12px] justify-end">
+          <div *ngIf="solicitudForm.get('email')?.errors?.['required']">El correo es obligatorio.</div>
+          <div *ngIf="solicitudForm.get('email')?.errors?.['email']">El formato del correo es inválido.</div>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-color_label text-sm font-normal ml-4 relative" for="tel">
+          Número de celular
+          <span class="text-red-500 absolute top-0">*</span>
+        </label>
+        <input
+          formControlName="tel"
+          class="shadow appearance-none border rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="tel"
+          type="number"
+          placeholder="3## ### ## ##"
+        />
+        <div *ngIf="solicitudForm.get('tel')?.invalid && solicitudForm.get('tel')?.touched" class="text-red-500  flex w-full text-[12px] justify-end">
+          <div *ngIf="solicitudForm.get('tel')?.errors?.['required']">El número de celular es obligatorio.</div>
+          <div *ngIf="solicitudForm.get('tel')?.errors?.['pattern']">El formato del número de celular es incorrecto.</div>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-color_label text-sm font-normal ml-4 relative" for="password">
+          Crea tu contraseña
+          <span class="text-red-500 absolute top-0">*</span>
+        </label>
+        <input
+          formControlName="password"
+          class="shadow appearance-none border rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="password"
+          type="password"
+          placeholder="***********"
+        />
+        <div *ngIf="solicitudForm.get('password')?.invalid && solicitudForm.get('password')?.touched" class="text-red-500 flex w-full text-[12px] justify-end">
+          <div *ngIf="solicitudForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</div>
+          <div *ngIf="solicitudForm.get('password')?.errors?.['minlength']">La contraseña debe tener al menos 8 caracteres.</div>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-color_label text-sm font-normal ml-4 relative" for="rep_password">
+          Repetir contraseña
+          <span class="text-red-500 absolute top-0">*</span>
+        </label>
+        <input
+          formControlName="rep_password"
+          class="shadow appearance-none border w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline rounded-xl"
+          id="rep_password"
+          type="password"
+          placeholder="Repetir contraseña"
+        />
+        <div *ngIf="solicitudForm.errors?.['mismatch'] && solicitudForm.get('rep_password')?.touched" class="text-red-500 flex w-full text-[12px] justify-end">
+          Las contraseñas no coinciden.
+        </div>
+      </div>
+
+      <div class="flex flex-row gap-3">
+        <input type="checkbox" formControlName="terms"/>
+        <h2>Autorización de los términos y condiciones de la plataforma</h2>
+      </div>
+      <div *ngIf="solicitudForm.get('terms')?.invalid && solicitudForm.get('terms')?.touched" class="text-red-500 flex w-full text-[12px] justify-end">
+        Debes aceptar los términos y condiciones.
+      </div>
+
+      <div class="flex flex-row gap-3 mt-3">
+        <input type="checkbox" formControlName="dataProcessing"/>
+        <h2>Autorización de tratamiento de datos</h2>
+      </div>
+      <div *ngIf="solicitudForm.get('dataProcessing')?.invalid && solicitudForm.get('dataProcessing')?.touched" class="text-red-500 flex w-full text-[12px] justify-end">
+        Debes autorizar el tratamiento de datos.
+      </div>
+
+      <button
+        class="bg-color_button w-full rounded-2xl hover:bg-color_button_hover text-black mt-3 py-2 px-4 focus:outline-none focus:shadow-outline"
+        type="submit"
+      >
+        Solicitar crédito
+      </button>
+    </form>
+  </div>
+
+  <!-- Lado Derecho: Imagen y Contenido Adicional -->
+  <div class="flex-1 flex flex-col justify-between items-center   bg-color_bg p-6 md:p-12">
+    <div class="flex flex-row items-center">
+      <h1 class="text-color_title font-bold text-6xl">álaga</h1>
+      <div class="w-2 h-2 bg-red-600 rounded-full mt-4"></div>
+    </div>
+    <div class="flex flex-col">
+      <h2 class="text-white font-bold text-4xl">Crédito para empresas</h2>
+      <h2 class="text-white text-4xl">¡Solicítalo hoy mismo!</h2>
+    </div>
+    <img src="../../../assets/logo-removebg-preview.webp" alt="Login Image" class="w-[40%] object-cover" />
+    <h3 class="text-[15px]  mt-3 text-white">Si eres persona jurídica con más de 6 meses de constitución</h3>
+
+    <img src="../../../assets/barra-removebg-preview.webp" alt="Login Image" class="w-[90%] object-cover" />
+  </div>
+
+</div>
