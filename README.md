@@ -29,7 +29,7 @@ It consists of a login screen, designed to be responsive and to allow input vali
 # Demo
 At the following link, you'll find a demo of the project.
 
-[Link]([https://github.com/Nemesis1019/Login_view.git](https://login-five-ebon.vercel.app/))
+[Link](https://login-five-ebon.vercel.app/)
 
 
 -------------------------------------------------------------------------------------------
