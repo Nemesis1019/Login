@@ -7,6 +7,7 @@ The project was carried out to test the ability to layout a website based on a d
 
 It consists of a login screen, designed to be responsive and to allow input validation.
 
+The project is configured in such a way that it can be accessed via two links , (http://localhost:4200) ó (http://localhost:4200/login)
 # Configuration
 
 1.- Clone this repository:
@@ -41,6 +42,8 @@ Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-
 El proyecto se realizó con el fin de poner a prueba la capacidad de maquetar un sitio web a partir de un diseño y dejar en evidencia el conocimiento de algunos conceptos clave en Angular.
 
 Consiste en una pantalla de login, hecha para que sea responsive y que permita la validación de los inputs.
+
+El proyecto esta configurado de tal manera que se puede acceder a el con 2 enlaces , , (http://localhost:4200) ó (http://localhost:4200/login)
 
 # Configuración
 
