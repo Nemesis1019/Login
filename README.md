@@ -24,7 +24,8 @@ It consists of a login screen, designed to be responsive and to allow input vali
 
  4 .Run `ng serve` for a dev server. Navigate to `http://localhost:4200/` ó `http://localhost:4200/login` . The application will automatically reload if you change any of the source files.
 
-   ng serve
+    ng serve
+   
 
 # Demo
 At the following link, you'll find a demo of the project.
@@ -57,7 +58,9 @@ Consiste en una pantalla de login, hecha para que sea responsive y que permita l
 
 4.- Ejecuta `ng serve` para iniciar un servidor de desarrollo. Navega a `http://localhost:4200/` ó `http://localhost:4200/login`. La aplicación se recargará automáticamente si cambias alguno de los archivos fuente.
 
+
     ng serve
+
 
 # Demo
 En el siguiente enlace, encontrarás una demostración del proyecto.
